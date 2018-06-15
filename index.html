@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/eosjs-ecc@4.0.1/dist/eosjs-ecc.js"></script>
+        <script>
+			function genkey() {
+			    eosjs_ecc.randomKey().then(x => {
+			        var private_key = x;
+			        var public_key = eosjs_ecc.privateToPublic(private_key);
+			        document.getElementById("public").innerHTML = public_key;
+			        document.getElementById("private").innerHTML = private_key;
+			    });
+			}
+
+			window.onload = genkey;
+
+		</script>
+
+
+    </head>
+    <body>
+        Public Key: <span id="public"></span><br />
+		Private Key: <span id="private"></span>
+    </body>
+</html>
